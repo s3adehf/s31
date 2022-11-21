@@ -36,6 +36,6 @@ const {city, ...rest} = address
 console.log(city)
 console.log(rest)
 
-const newAddress = {...address, steet: 'Tverskaia', code: 123}
+const newAddress = {...address, steet: 'Tverskaia', code: 123.}
 
 console.log(newAddress)

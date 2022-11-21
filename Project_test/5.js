@@ -2,6 +2,7 @@ const cityField ='city'
 
 const job = 'Frontend'
 
+// person[cityField] = (person[cityField] ? person[cityField] : 0) + 1
 const person = {
     age: 27,
     name: 'Irina',

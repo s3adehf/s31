@@ -1,10 +1,23 @@
-<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
-  <img [src]="product.image" [alt]="product.title" class="w-1/6 mb-2">
+<div class="py-4 center-top px-6 border rounded flex items-center col-md-8 mx-auto row text-md text-center">
+  <img [src]="product.image" [alt]="product.title" class="w-25 mb-2 mx-auto">
   <h2 class = "mb-2 text-md text-center">{{ product.title }}</h2>
-  <p>Модель-трансформер: рюкзак легко превращается в деловой
-    портфель. С ним одинаково комфортно отправиться в поездку,
-    на прогулку или бизнес-встречу. Продуманный эргономичный
-    дизайн, антикражная конструкция, USB-порт для зарядки
-    гаджетов.</p>
+  <p> Price: <span class="fw-bold">{{product.price | currency: 'RUB'}}</span></p>
 
+  <button
+    class="border py-2 px-2 rounded"
+    [ngClass]="{
+    'bg-yellow text-white': !details,
+    'bg-dark text-white': details
+    }"
+    (click)="details = !details"
+  >
+    {{details ? 'Hide':'Show'}} Details
+  </button>
+
+  <div *ngIf="details">
+  <p>{{ product.description }}</p>
+    <p>Rate: <span [ngStyle]="{fontWeight: 'bold'}">
+      {{ product.rating.rate | number: '1.1-2'}}
+    </span></p>
+</div>
 </div>
