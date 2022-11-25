@@ -2,12 +2,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-tbody {
-  font-size: 90%;
-  font-style: italic;
-}
-
-tfoot {
-  font-weight: bold;
-}
