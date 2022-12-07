@@ -1,0 +1,21 @@
+BODY {
+  background: white; /* Цвет фона веб-страницы */
+}
+TABLE {
+  width: 300px; /* Ширина таблицы */
+  border-collapse: collapse; /* Убираем двойные линии между ячейками */
+  border: 2px solid black; /* Прячем рамку вокруг таблицы */
+}
+TD, TH {
+  padding: 15px; /* Поля вокруг содержимого таблицы */
+  border: 2px solid maroon; /* Параметры рамки */
+  text-align: center;
+}
+.otstup{
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  font-size: 26px;
+  font-weight: bold;
+}
