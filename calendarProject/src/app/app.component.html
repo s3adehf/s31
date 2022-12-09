@@ -1,7 +1,7 @@
 <div>
   <h1 class="text-center">{{ name }}</h1>
-  <h2 class="title py-4 px-6 border rounded flex items-center flex-col mb-2">
-    НОЯБРЬ
+  <h2 class="title py-4 px-6 border rounded flex items-center flex-col mb-2 uppercase">
+    {{date.format('MMMM')}}
   </h2>
   <table class="text-center table-striped table table-bordered otstup">
     <thead>
@@ -14,31 +14,17 @@
       <th scope="col">Воскресенье</th>
     </thead>
     <tbody>
-      <tr>
-        <td *ngFor="let date of dates" >
-          {{ date }}
-        </td>
-      </tr>
-      <tr>
-        <td *ngFor="let date of dates1">
-          {{ date }}
-        </td>
-      </tr>
-      <tr>
-        <td *ngFor="let date of dates2">
-          {{ date }}
-        </td>
-      </tr>
-      <tr>
-        <td *ngFor="let date of dates3">
-          {{ date }}
-        </td>
-      </tr>
-      <tr>
-        <td *ngFor="let date of dates4">
-          {{ date }}
+      <tr *ngFor="let date of dates">
+        <td *ngFor="let col of date">
+          {{ col }}
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<div>
+  {{date.format('dd, MMMM YYYY, h:mm:ss a')}}
+  <h1>{{date.format('dd, hA')}}</h1>
+</div>
+
