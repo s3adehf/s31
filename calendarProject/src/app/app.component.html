@@ -1,8 +1,13 @@
 <div>
+
   <h1 class="text-center">{{ name }}</h1>
-  <h2 class="title py-4 px-6 border rounded flex items-center flex-col mb-2 uppercase">
-    {{date.format('MMMM')}}
+
+  <h2 class="title py-4 px-6 mb-2 uppercase text-center">
+    <button class=""><</button>
+    <h3 class="div1">{{date.format('MMMM')}}</h3>
+    <button class="">></button>
   </h2>
+
   <table class="text-center table-striped table table-bordered otstup">
     <thead>
       <th scope="col">Понедельник</th>

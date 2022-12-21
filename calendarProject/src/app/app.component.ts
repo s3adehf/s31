@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import 'moment/locale/ru';
 import * as moment from "moment";
 
@@ -9,7 +9,7 @@ import * as moment from "moment";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   name = 'calendarProject';
   // dates1 = [1,2,3,4,5,6,7]
@@ -75,21 +75,56 @@ export class AppComponent {
   //   ]
   // ]
 
-  dates = [
-    [
-
-    ],
-    [],
-    [],
-    [],
-    []
-  ]
+  dates:any[] = []
+  
 
   constructor() {
     moment.locale('ru');
   }
   date = moment();
 
+  ngOnInit(): void{
+    this.dinamicArray();
+  }
+
+  private dinamicArray(): void{
+    let start = moment().startOf('month');
+    let dayOfWeek = moment(start).day();
+    let table = new Array(6);	
+    let day = 1;	
+    for(let i = 0; i < table.length; i++)
+    table[i] = new Array(7);
+    for(let firstStr = dayOfWeek-1; firstStr < table[0].length; firstStr++){
+      table[0][firstStr] = moment().month(11).date(day++).format('D');
+    }
+    for(let row = 1; row < table.length; row++) {
+      for(let col = 0; col < table[row].length; col++) {
+        table[row][col] = moment().month(11).date(day++).format('D');
+      }
+    }
+  this.dates = table
+  }
+  // table = new Array(7);		
+  // for(var i = 0; i < table.length; i++)
+  //   table[i] = new Array(10);
+  // for(var row = 0, str = ''; row < table.length; row++) {
+  //   for(var col = 0; col < table[row].length; col++) {
+  //     table[row][col] = (row+1)*(col+1);
+  //     str += table[row][col] + '  ';
+  //   }
+  // }
+  // createCalendar(month)
+  // {
+  //   let firstDay = moment(month).startOf('M');
+  //   let days = Array.apply(null,{length: month.daysInMonth()+1})
+  //              .map(Number.call, Number)
+  //              .slice(1);
+  //   for(let n=0; n < firstDay.weekday(); n++)
+  //   {
+  //     days.unshift(null);
+
+  //   }
+  //   return days;
 }
 
 
